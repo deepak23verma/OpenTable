@@ -1,0 +1,43 @@
+
+<%= form_for @restaurant do |f| %>
+	<fieldset>
+		<ul>
+			<li>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</li>
+			<li>
+				<%= f.label :summary %>
+				<%= f.text_area :summary, cols: 40, rows: 7 %>
+			</li>
+			<li>
+				<%= f.label :address %>
+				<%= f.text_field :address %>
+			</li>
+			<li>
+				<%= f.label :city %>
+				<%= f.text_field :city %>
+			</li>
+			<li>
+				<%= f.label :province %>
+				<%= f.text_field :province %>
+			</li>
+			<li>
+				<%= f.label :postal_code %>
+				<%= f.text_field :postal_code %>
+			</li>
+			<li>
+				<%= f.label :phone_number %>
+				<%= f.text_field :phone_number %>
+			</li>
+			<li>
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</li>
+		</ul>
+	</fieldset>
+	<p>
+		<%= f.submit %> | 
+		<%= link_to "Cancel", restaurant_path(@restaurant) %>
+	</p>
+<% end %>
