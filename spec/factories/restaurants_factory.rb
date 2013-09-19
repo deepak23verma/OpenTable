@@ -10,5 +10,6 @@ FactoryGirl.define do
     province "MyString"
     postal_code "MyString"
     email "deepak@email.com"
+    website "www.nba.com"
   end
 end

@@ -47,5 +47,10 @@ describe Restaurant do
 		restaurant.email = nil
 		expect(restaurant).to be_invalid
 	end
+
+	it "should be invalid when website is empty" do
+		restaurant.website = nil
+		expect(restaurant).to be_invalid
+	end
 		
 end

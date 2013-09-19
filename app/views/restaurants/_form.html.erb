@@ -28,11 +28,15 @@
 			</li>
 			<li>
 				<%= f.label :phone_number %>
-				<%= f.text_field :phone_number %>
+				<%= f.telephone_field :phone_number %>
 			</li>
 			<li>
 				<%= f.label :email %>
-				<%= f.text_field :email %>
+				<%= f.email_field :email %>
+			</li>
+			<li>
+				<%= f.label :website %>
+				<%= f.url_field :website %>
 			</li>
 		</ul>
 	</fieldset>
