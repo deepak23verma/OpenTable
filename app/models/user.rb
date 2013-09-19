@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 	validates :email, format: { with: /(\S+)@(\S+)/ }, presence: true
 
 	has_secure_password
+	validates_presence_of :password, :on => :create
 end
