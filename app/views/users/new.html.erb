@@ -1,0 +1,31 @@
+<h1>New User Page</h1>
+
+<%= form_for @user do |f| %>
+	<fieldset>
+		<ul>
+			<li>
+				<%= f.label :first_name%>
+				<%= f.text_field :first_name, autofocus: true  %>
+				<%= f.label :last_name %>
+				<%= f.text_field :last_name %>
+			</li>
+			<li>
+				<%= f.label :email %>
+				<%= f.email_field :email %>
+			</li>
+			<li>
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+				<%= f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation %>
+			</li>
+			<li>
+				<%= f.label :phone_number %>
+				<%= f.telephone_field :phone_number %>
+			</li>
+			<li>
+				<%= f.select :user_type, User::USERS, prompt: "User Type" %>
+			</li>
+		</ul>
+	</fieldset>
+<% end %>
