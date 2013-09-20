@@ -23,11 +23,18 @@
 	<h4>Make a Reservation</h4>
 
 	<%= form_for([@restaurant, @reservation]) do |f| %>
+		Select Reservation Date and Time <em>(All reservations are set for 2 hours)</em>
 		<fieldset>
-			Select Reservation Date and Time <em>(one hour increments only)</em>
-			<p>
- 			<%= f.datetime_select :reservation_time, prompt: {day: 'Day', month: 'Month', year: 'Year', minute: false}, :start_year => Time.now.year, :end_year => Time.now.year + 2, :use_short_month => true, ampm: true, minute_step: 60, start_hour: 8, end_hour: 21 %>
- 			</p>
+			<legend>Foo</legend>
+			<%= f.datetime_select :reservation_time, :start_year => Time.zone.now.year, :end_year => Time.zone.now.year + 2, :use_short_month => true, ampm: true, minute_step: 60, start_hour: 8, end_hour: 21 %>
 		</fieldset>
+		<p>
+			<%= f.label :party_size %>
+			<%= f.select :party_size, (1..20) %>
+		</p>
+		<p>
+			<%= f.submit %> | 
+			<%= link_to "Cancel", restaurant_path(@restaurant) %>
+		</p>
 	<% end %>
 <% end %>

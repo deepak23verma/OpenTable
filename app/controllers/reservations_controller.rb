@@ -12,6 +12,10 @@ class ReservationsController < ApplicationController
 	def create
 		@reservation = @restaurant.reservations.build(reservation_params)
 		@reservation.user_id = current_user.id
+		if @reservation.save
+			flash[:notice] = "Your reservation at #{@reservation.restaurant.name} is confirmed"
+			redirect_to user_path(current_user.id)
+		end
 	end
 
 	def edit

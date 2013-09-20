@@ -3,6 +3,6 @@ class Restaurant < ActiveRecord::Base
 	validates :email, format: { with: /(\S+)@(\S+)/ }, presence: true
 	validates :max_seats, numericality: true
 
-	has_many :reservations
+	has_many :reservations, :dependent => :destroy
 	has_many :users, :through => :reservations
 end
