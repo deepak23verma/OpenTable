@@ -29,3 +29,10 @@
 		<%= link_to "Cancel", restaurants_path %>
 	</p>
 <% end %>
+<%= select_tag 'user[test(1i)]', options_for_select(2013..2014) %> <!-- Year -->
+<%= hidden_field 'user','test(2i)', value: 9 %> <!-- Month --> 
+<%= hidden_field 'user','test(3i)', value: 19 %> <!-- Day -->
+<%= select_tag 'user[test(4i)]', options_for_select(8..16)  %> <!-- Hours -->
+<%= hidden_field 'user','test(5i)', value: 0 %> <!-- Seconds -->
+
+<%#= time_select :test, :test%>

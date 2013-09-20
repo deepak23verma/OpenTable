@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		raise @user.inspect
 		if @user.save
 			flash[:notice] = "#{@user.first_name}, Welcome to OpenTable! Bon Appetit!"
 			redirect_to @user

@@ -1,7 +1,15 @@
 Opentable::Application.routes.draw do
 
-  resources :restaurants
-  resources :users
+  resources :restaurants do
+    resources :reservations
+  end
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  resources :users, :except => [:index]
+  # resources :users do
+  #   resources :reservations
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
