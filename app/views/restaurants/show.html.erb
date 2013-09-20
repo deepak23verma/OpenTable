@@ -19,9 +19,10 @@
 <%= link_to 'Delete',@restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <!-- #############MAKE A RESERVATION################ -->
-
+<% if current_user %>
 <h4>Make a Reservation</h4>
 
 <%= form_for([@restaurant, @reservation]) do |f| %>
 	<p>Inside the Reservation Form</p>
+<% end %>
 <% end %>
