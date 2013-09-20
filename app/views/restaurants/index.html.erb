@@ -2,7 +2,7 @@
 
 <% @restaurants.each do |restaurant| %>
 <article class="restaurant">
-	<h2><%= restaurant.name %></h2>
+	<h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
 	<h4>Summary</h4>
 	<p><%= restaurant.summary %></p>
 	<h4>Contact</h4>
