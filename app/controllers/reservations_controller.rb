@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+	before_filter :ensure_logged_in, :only => [:new, :edit, :destroy]
 	before_filter :load_restaurant
 
 	def show
