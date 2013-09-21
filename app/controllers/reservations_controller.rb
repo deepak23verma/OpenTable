@@ -10,12 +10,17 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		@reservation = @restaurant.reservations.build(reservation_params)
-		@reservation.user_id = current_user.id
-		if @reservation.save
-			flash[:notice] = "Your reservation at #{@reservation.restaurant.name} is confirmed"
-			redirect_to user_path(current_user.id)
-		end
+				@reservation = @restaurant.reservations.build(reservation_params)
+				@reservation.user_id = current_user.id
+			if @reservation.save
+				flash[:notice] = "Your reservation at #{@reservation.restaurant.name} is confirmed"
+				redirect_to user_path(current_user.id)
+			end
+		
+
+			# flash[:alert] = "Sorry but there is no availability, please adjust your reservation time."
+			# render restaurant_path(@restaurant)
+		
 	end
 
 	def edit
