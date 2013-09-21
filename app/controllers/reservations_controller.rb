@@ -15,12 +15,10 @@ class ReservationsController < ApplicationController
 			if @reservation.save
 				flash[:notice] = "Your reservation at #{@reservation.restaurant.name} is confirmed"
 				redirect_to user_path(current_user.id)
+			else
+				flash[:notice] = "No Space, Please Come Again!"
+				redirect_to restaurant_path(params[:restaurant_id])
 			end
-		
-
-			# flash[:alert] = "Sorry but there is no availability, please adjust your reservation time."
-			# render restaurant_path(@restaurant)
-		
 	end
 
 	def edit
