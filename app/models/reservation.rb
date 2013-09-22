@@ -14,6 +14,7 @@ class Reservation < ActiveRecord::Base
 	private
 
 	def check_availability
+		return
 		reservations = Restaurant.find(restaurant_id).reservations.where('reservation_time', reservation_time.to_s)
 		total_bookings = reservations.inject(0) { |sum, reservation| sum + reservation.party_size }
 		if (Restaurant.find(restaurant_id).max_seats - total_bookings) < party_size
