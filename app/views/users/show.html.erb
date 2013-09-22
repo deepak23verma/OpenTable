@@ -1,2 +1,23 @@
 <h1><%= @user.first_name %> <%=@user.last_name %>'s Profile Page</h1>
 
+<h2>My upcoming reservations</h2>
+	<table border='1'>
+	<tr>
+		<th>Reservation ID</th>
+		<th>Restaurant</th>
+		<th>Reseration Date/Time</th>
+		<th>Party Size</th>
+	</tr>
+	<% @user.reservations.each do |reservation| %>
+		<% if reservation.reservation_time.future? %>
+			<tr>
+				<td><%= reservation.id %></td>
+				<td><%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant_id) %></td>
+				<td><%= reservation.reservation_time.strftime("%b %d, %Y @ %I:%M %P") %></td>
+				<td><%= reservation.party_size %></td>
+			</tr>
+		<% end %>
+	<% end %>
+	</table>
+
+

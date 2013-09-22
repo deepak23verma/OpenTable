@@ -11,8 +11,8 @@
 		<%= @restaurant.postal_code %>		
 	</p>
 	<p><strong>Phone Number: </strong><%= @restaurant.phone_number %></p>
-	<p><strong>Email: </strong><%= @restaurant.email %></p>
-	<p><strong>Website: </strong><%= @restaurant.website %></p>
+	<p><strong>Email: </strong><a href="mailto:<%= @restaurant.email %>?Subject=Seat%20Yourself%20Customer">Send an email</a></p>
+	<p><strong>Website: </strong><a href="<%= @restaurant.website %>" target="_blank">Visit their website</a></p>
 </div>
 
 <%= link_to "Edit", edit_restaurant_path(@restaurant) %> | 
@@ -20,9 +20,6 @@
 
 <% if current_user.nil? %>
 	<%= link_to 'Please log in to make a reservation', new_session_path %>
-<% end %>
-
-<!-- #############MAKE A RESERVATION################ -->
-<% if current_user %>
+<% else %>
 	<%= render 'reservation_form' %>
 <% end %>
