@@ -16,24 +16,13 @@
 </div>
 
 <%= link_to "Edit", edit_restaurant_path(@restaurant) %> | 
-<%= link_to 'Delete',@restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete',@restaurant, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+
+<% if current_user.nil? %>
+	<%= link_to 'Please log in to make a reservation', new_session_path %>
+<% end %>
 
 <!-- #############MAKE A RESERVATION################ -->
 <% if current_user %>
-	<h4>Make a Reservation</h4>
-
-	<%= form_for([@restaurant, @reservation]) do |f| %>
-		<fieldset>
-			<legend>Select Reservation Date and Time <em>(All reservations are set for 2 hours)</em></legend>
-			<%= f.datetime_select :reservation_time, :start_year => Time.zone.now.year, :end_year => Time.zone.now.year + 2, :use_short_month => true, ampm: true, minute_step: 60, start_hour: 8, end_hour: 21 %>
-		</fieldset>
-		<p>
-			<%= f.label :party_size %>
-			<%= f.select :party_size, (1..20) %>
-		</p>
-		<p>
-			<%= f.submit %> | 
-			<%= link_to "Cancel", restaurant_path(@restaurant) %>
-		</p>
-	<% end %>
+	<%= render 'reservation_form' %>
 <% end %>
