@@ -27,9 +27,9 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		raise @user.inspect
 		if @user.save
-			flash[:notice] = "#{@user.first_name}, Welcome to OpenTable! Bon Appetit!"
+			UserMailer.welcome_email(@user).deliver
+			flash[:notice] = "#{@user.first_name}, Welcome to Seat Yourself! Bon Appetit!"
 			redirect_to @user
 		else
 			render :new

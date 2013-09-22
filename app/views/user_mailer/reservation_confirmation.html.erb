@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you, <%= @reservation.user.first_name%>, for using Seat Yourself to make your reservation at <%= @reservation.restaurant.name %></h1>
+    <p>
+      <strong>Your reservation is confirmed for: </strong><%= @reservation.reservation_time %></p>
+    <p><strong>Party size: </strong><%= @reservation.party_size %></p>
+    <p>To view all your upcoming reservations please go to: <a href="<%= @url %>"><%= @reservation.user.first_name%>'s profile page</a>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

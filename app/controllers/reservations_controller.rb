@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
 				@reservation = @restaurant.reservations.build(reservation_params)
 				@reservation.user_id = current_user.id
 			if @reservation.save
+				UserMailer.reservation_confirmation(@reservation).deliver
 				flash[:notice] = "Your reservation at #{@reservation.restaurant.name} is confirmed"
 				redirect_to user_path(current_user.id)
 			else
