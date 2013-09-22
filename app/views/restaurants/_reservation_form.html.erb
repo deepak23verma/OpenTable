@@ -2,7 +2,7 @@
 
 	<%= form_for([@restaurant, @reservation]) do |f| %>
 		<fieldset>
-			<legend>Select Reservation Date and Time <em>(All reservations are set for 2 hours)</em></legend>
+			<legend>Select Reservation Date and Time <em>(All reservations are set for 1 hours)</em></legend>
 			<%= f.datetime_select :reservation_time, :start_year => Time.zone.now.year, :end_year => Time.zone.now.year + 2, :use_short_month => true, ampm: true, minute_step: 60, start_hour: 8, end_hour: 21 %>
 		</fieldset>
 		<p>
