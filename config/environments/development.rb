@@ -7,8 +7,8 @@ Opentable::Application.configure do
     domain: "localhost:3000",
     authentication: "plain",
     enable_starttles_auto: true,
-    user_name: "deepak.23.verma@gmail.com",
-    password: "raptors1977",
+    user_name: ,
+    password: ,
   }
   # Settings specified here will take precedence over those in config/application.rb.
 
